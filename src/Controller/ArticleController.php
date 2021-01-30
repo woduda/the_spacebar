@@ -22,5 +22,4 @@ class ArticleController
     {
         return new Response("I'm $slug");
     }
-
 }
