@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class ArticleController 
+class ArticleController extends AbstractController
 {
     /**
      * @Route("/")
@@ -20,6 +21,15 @@ class ArticleController
      */
     public function show($slug)
     {
-        return new Response("I'm $slug");
+        $comments = [
+            'So great!',
+            'This is awesome',
+            'What\'s next?',
+        ];
+
+        return $this->render('article/show.html.twig', [
+            'title' => ucwords(str_replace('-', ' ', $slug)),
+            'comments' => $comments,
+        ]);
     }
 }
