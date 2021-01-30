@@ -26,7 +26,7 @@ class ArticleController extends AbstractController
             'This is awesome',
             'What\'s next?',
         ];
-
+        // dump($slug, $this);
         return $this->render('article/show.html.twig', [
             'title' => ucwords(str_replace('-', ' ', $slug)),
             'comments' => $comments,
